@@ -1,4 +1,4 @@
-#include "interpola.h"
+#include "include/interpola.h"
 
 int N=0;
 int errore_interpola=0;
@@ -13,7 +13,7 @@ double interpola(double *v_alpha,double *v_coeff,double alpha)
         //printf("ERRORE di Interpola(): Il valore da interpolare si trova al di fuori del database\n");
         errore_interpola=1;
     }
-    //Cerco l'intervallo dove è contenuto il risultato
+    //Cerco l'intervallo dove ï¿½ contenuto il risultato
     while ((!intervallo_trovato)&&!errore_interpola){
         if ((v_alpha[i]<=alpha)&&(alpha<=v_alpha[i+1]))
         {

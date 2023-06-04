@@ -1,4 +1,4 @@
-#include "lettura_dati.h"
+#include "include/lettura_dati.h"
 
 FILE* in_lettura=0;
 int errore_lettura=0;

@@ -1,4 +1,4 @@
-#include "comando.h"
+#include "include/comando.h"
 
 u_funz_comando set_comandi[SIZE_COM];
 void * funct_ptr[SIZE_COM];

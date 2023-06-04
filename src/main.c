@@ -3,16 +3,16 @@
 
 #include <math.h>
 
-#include "Funzioni/lettura_dati.h"
-#include "Funzioni/atmosfera.h"
-#include "Funzioni/propeller.h"
-#include "Funzioni/aeromobile.h"
-#include "Funzioni/trim.h"
-#include "Funzioni/routh.h"
-#include "Funzioni/comando.h"
-#include "Funzioni/interpola.h"
-#include "Funzioni/integratore.h"
-#include "Funzioni/checking.h"
+#include "lib/include/lettura_dati.h"
+#include "lib/include/atmosfera.h"
+#include "lib/include/propeller.h"
+#include "lib/include/aeromobile.h"
+#include "lib/include/trim.h"
+#include "lib/include/routh.h"
+#include "lib/include/comando.h"
+#include "lib/include/interpola.h"
+#include "lib/include/integratore.h"
+#include "lib/include/checking.h"
 
 #define DT 0.01
 #define RAD_TO_DEG 180.0/3.14
@@ -59,12 +59,12 @@ int main(int argc,char **argv){
 
     double h,vel,gamma;
     int errore=0,esci=0;
-    char* file_dba="Dati/dba.txt";
-    char* file_engine="Dati/engine.txt";
-    char* file_prop="Dati/propeller.txt";
-    char* file_out_stati="Dati/stati.txt";
-    char* file_out_com="Dati/comandi.txt";
-    char* file_out_w_e="Dati/warning_errori.txt";
+    char* file_dba="../etc/dba.txt";
+    char* file_engine="../etc/engine.txt";
+    char* file_prop="../etc/propeller.txt";
+    char* file_out_stati="../output/stati.txt";
+    char* file_out_com="../output/comandi.txt";
+    char* file_out_w_e="../output/warning_errori.txt";
 
 
     //Lettura dei dati di input

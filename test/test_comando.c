@@ -1,14 +1,14 @@
 #include <stdio.h>
 
-#include "..\Funzioni\comando.h"
-#include "..\Funzioni\lettura_dati.h"
-#include "..\Funzioni\propeller.h"
-#include "..\Funzioni\atmosfera.h"
-#include "..\Funzioni\aeromobile.h"
-#include "..\Funzioni\trim.h"
-#include "..\Funzioni\integratore.h"
+#include "../src/lib/include/comando.h"
+#include "../src/lib/include/lettura_dati.h"
+#include "../src/lib/include/propeller.h"
+#include "../src/lib/include/atmosfera.h"
+#include "../src/lib/include/aeromobile.h"
+#include "../src/lib/include/trim.h"
+#include "../src/lib/include/integratore.h"
 
-int main(){
+int test_comando(){
     u_funz_comando u_com;
     t_descrizione_aereo desc_aer;
     t_limiti_comando limiti_comandi;
@@ -27,11 +27,11 @@ int main(){
 
     double h,vel,gamma,t;
     int errore,i;
-    char* file_dba="Dati\\dba.txt";
-    char* file_engine="Dati\\engine.txt";
-    char* file_prop="Dati\\propeller.txt";
-    char* file_out_stati="Dati\\stati.txt";
-    char* file_out_com="Dati\\comandi.txt";
+    char* file_dba="../../etc/dba.txt";
+    char* file_engine="../../etc/engine.txt";
+    char* file_prop="../../etc/propeller.txt";
+    char* file_out_stati="../../output/stati.txt";
+    char* file_out_com="../../output/comandi.txt";
     double dt=0.01;
     FILE *out_stati,*out_com;
 
@@ -253,7 +253,6 @@ int main(){
     libera_dba(&dba);
     libera_dbp(&dbp);
 
-    printf("Premere un tasto per terminare\n");
-    //getchar();
+
     return 0;
 }

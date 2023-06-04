@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "..\Funzioni\lettura_dati.h"
+#include "../src/lib/include/lettura_dati.h"
 
-int main()
+int test_lettura()
 {
     t_descrizione_aereo descrizione_aereo;
     t_limiti_comando limiti_comando;
@@ -15,9 +15,9 @@ int main()
     int i;
     int errore;
 
-    const char* file_dba="Dati\\dba.txt";
-    const char* file_engine="Dati\\engine.txt";
-    const char* file_propeller="Dati\\propeller.txt";
+    const char* file_dba="../../etc/dba.txt";
+    const char* file_engine="../../etc/engine.txt";
+    const char* file_propeller="../../etc/propeller.txt";
 
 
     errore=apri_file_lettura(file_dba); //apro il file dba
@@ -179,8 +179,7 @@ int main()
 
     libera_dba(&dba);
     libera_dbp(&dbp);
-    printf("Premere un tasto per terminare\n");
-    getchar();
+
 
     return 0;
 }

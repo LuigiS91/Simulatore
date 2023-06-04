@@ -1,12 +1,12 @@
 #include <stdio.h>
 
-#include "..\Funzioni\lettura_dati.h"
-#include "..\Funzioni\propeller.h"
-#include "..\Funzioni\atmosfera.h"
-#include "..\Funzioni\aeromobile.h"
-#include "..\Funzioni\trim.h"
+#include "../src/lib/include/lettura_dati.h"
+#include "../src/lib/include/propeller.h"
+#include "../src/lib/include/atmosfera.h"
+#include "../src/lib/include/aeromobile.h"
+#include "../src/lib/include/trim.h"
 
-int main(){
+int test_aeromobile(){
     t_descrizione_aereo desc_aer;
     t_limiti_comando limiti_comandi;
     t_massa_combustibile massa_combustibile;
@@ -21,9 +21,9 @@ int main(){
     t_stato dstato;
     double h,vel,gamma;
     int errore;
-    char* file_dba="Dati\\dba.txt";
-    char* file_engine="Dati\\engine.txt";
-    char* file_prop="Dati\\propeller.txt";
+    char* file_dba="../../etc/dba.txt";
+    char* file_engine="../../etc/engine.txt";
+    char* file_prop="../../etc/propeller.txt";
 
 
     //Lettura dei dati di input
@@ -96,7 +96,5 @@ int main(){
     libera_dba(&dba);
     libera_dbp(&dbp);
 
-    printf("Premere un tasto per terminare\n");
-    getchar();
     return 0;
 }

@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "..\Funzioni\interpola.h"
-#include "..\Funzioni\lettura_dati.h"
+#include "../src/lib/include/interpola.h"
+#include "../src/lib/include/lettura_dati.h"
 
 
-int main(){
+int test_interpola(){
     //Testo la funzione propeller
     printf("Test lettura funzione interpola\n");
 
@@ -17,10 +17,10 @@ int main(){
     t_limiti_comando lim_com;
     t_massa_combustibile massa_comb;
     t_dba dba;
-    const char* file_dba="Dati\\dba.txt";
+    const char* file_dba="../../etc/dba.txt";
     int errore;
 
-    set_dimensione_vettori_interpola(3); //in questo modo si setta una sola volta e non bisogna passarlo ogni volta. Un passaggio quindi inutile di un valore costante è evitabile
+    set_dimensione_vettori_interpola(3); //in questo modo si setta una sola volta e non bisogna passarlo ogni volta. Un passaggio quindi inutile di un valore costante ï¿½ evitabile
 
     printf("Esempio di database semplice per verificare l'effettiva interpolazione\n");
     printf("ALPHA\tCx(ALPHA)\n");
@@ -82,8 +82,6 @@ int main(){
 
     libera_dba(&dba);
 
-    printf("Premere un tasto per terminare\n");
-    getchar();
 
 return 0;
 }

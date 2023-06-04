@@ -1,4 +1,4 @@
-#include "aeromobile.h"
+#include "include/aeromobile.h"
 
 
 t_stato aeromobile(const t_stato *stato,const t_comando *com,const t_dba *dba,const t_dbp *dbp,const t_descrizione_aereo *desc_aer,const t_descrizione_propeller *desc_prop,const t_atm_sl *atm_sl){
@@ -64,7 +64,7 @@ t_stato aeromobile(const t_stato *stato,const t_comando *com,const t_dba *dba,co
 
 
     /*Equazioni*/
-    // A sinistra è calcolato il valore di derivata nella struttura di stato
+    // A sinistra ï¿½ calcolato il valore di derivata nella struttura di stato
     res_stato.u=(stato->r*stato->v-stato->q*stato->w) - const_g*sin(stato->theta) + X/desc_aer->massa + T/desc_aer->massa;
     res_stato.v=(stato->p*stato->w-stato->r*stato->u) + const_g*sin(stato->phi)*cos(stato->theta) + Y/desc_aer->massa;
     res_stato.w=(stato->q*stato->u-stato->p*stato->v) + const_g*cos(stato->phi)*cos(stato->theta) + Z/desc_aer->massa;

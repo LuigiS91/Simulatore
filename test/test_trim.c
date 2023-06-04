@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "..\Funzioni\trim.h"
+#include "../src/lib/include/trim.h"
 
-int main(){
+int test_trim(){
     t_descrizione_aereo desc_aer;
     t_limiti_comando limiti_comandi;
     t_massa_combustibile massa_combustibile;
@@ -13,9 +13,9 @@ int main(){
     t_res_trim res_trim;
     double h,vel,gamma;
     int errore;
-    char* file_dba="Dati\\dba.txt";
-    char* file_engine="Dati\\engine.txt";
-    char* file_prop="Dati\\propeller.txt";
+    char* file_dba="../../etc/dba.txt";
+    char* file_engine="../../etc/engine.txt";
+    char* file_prop="../../etc/propeller.txt";
 
 
 
@@ -83,7 +83,5 @@ int main(){
     libera_dba(&dba);
     libera_dbp(&dbp);
 
-    printf("Premere un tasto per terminare\n");
-    getchar();
     return 0;
 }

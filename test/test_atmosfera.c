@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "..\Funzioni\atmosfera.h"
+#include "../src/lib/include/atmosfera.h"
 
 
-int main(){
+int test_atmosfera(){
     //Testo la funzione propeller
     t_atm prova,prova_std;
     t_atm_sl atm_sl;
@@ -19,7 +19,7 @@ int main(){
     printf("\n\n\n\nATMOSFERA STANDARD: \nDensita' al livello del mare %f kg/m^3;\nPressione al livello del mare %f Pa;\nTemperatura al livello del mare %f K\nGradiente termico verticale %f K/m.\n",std_rho0,std_P0,std_T0,std_a);
     prova_std=atmosfera_std(h);
     printf("A quota %f m hai:\nDensita' %f kg/m^3;\nPressione %f Pa;\nTemperatura %f K;\nVelocita' del suono %f m/s.",prova_std.h,prova_std.dens,prova_std.press,prova_std.temp,prova_std.vel_s);
-    getchar();
+
     return 0;
 }
 

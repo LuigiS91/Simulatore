@@ -1,4 +1,4 @@
-#include "trim.h"
+#include "include/trim.h"
 
 int errore_trim=0;
 
@@ -62,7 +62,7 @@ t_res_trim trim(t_descrizione_aereo desc_aer,t_dba dba,t_engine engine,t_descriz
                 rinizia=1;
         }
         if(i>dba.num_inc-1){
-            //printf("Non si può trimmare il velivolo")
+            //printf("Non si puï¿½ trimmare il velivolo")
             finito=1;
             errore_trim=1;
         }

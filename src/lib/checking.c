@@ -1,4 +1,4 @@
-#include "checking.h"
+#include "include/checking.h"
 
 FILE* out_w_e=0;
 
@@ -150,13 +150,13 @@ int check_vel(const t_stato *stato, double t){
     int errore_velocita=0;
     if ((sqrt(pow(stato->u,2.0)+pow(stato->v,2.0)+pow(stato->w,2.0)))<V_STALLO){
         errore_velocita=1; //Errore grave
-        printf("t= %lf\n\t[-] Velocità inferiore alla velocità di stallo\n",t);
+        printf("t= %lf\n\t[-] Velocitï¿½ inferiore alla velocitï¿½ di stallo\n",t);
         fprintf(out_w_e,"t = %lf\n\t[-] Velocita' inferiore alla velocita' di stallo\n",t);
     }
     else if ((sqrt(pow(stato->u,2.0)+pow(stato->v,2.0)+pow(stato->w,2.0)))>V_NE){
         errore_velocita=1; //Errore grave
-        printf("t= %lf\n\t[-] Velocità superiore alla Vne\n",t);
-        fprintf(out_w_e,"t= %lf\n\t[-] Velocità superiore alla Vne\n",t);
+        printf("t= %lf\n\t[-] Velocitï¿½ superiore alla Vne\n",t);
+        fprintf(out_w_e,"t= %lf\n\t[-] Velocitï¿½ superiore alla Vne\n",t);
     }
 
 return errore_velocita;
@@ -164,7 +164,7 @@ return errore_velocita;
 
 int check_h(const t_stato *stato, double t){
     int errore_h=0;
-    if (stato->h>QUOTA_TANGENZA){ //4116 è la quota di tangenza, slides
+    if (stato->h>QUOTA_TANGENZA){ //4116 ï¿½ la quota di tangenza, slides
         errore_h=2;//warning non grave
         fprintf(out_w_e,"t = %lf\n\t[!] Velivolo ha superato la quota di tangenza\n",t);
     }

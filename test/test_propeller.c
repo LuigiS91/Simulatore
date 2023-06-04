@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "..\Funzioni\propeller.h"
-#include "..\Funzioni\atmosfera.h"
+#include "../src/lib/include/propeller.h"
+#include "../src/lib/include/atmosfera.h"
 
 
 
-int main(){
+int test_propeller(){
     t_descrizione_propeller desc_prop;
     t_dbp dbp;
     t_res_prop prop;
-    const char* file_propeller="Dati\\propeller.txt";
+    const char* file_propeller="../../etc/propeller.txt";
     t_atm atm;
     int errore;
 
@@ -20,7 +20,7 @@ int main(){
     printf("Parametri atmosferici settati\nQuota %lf m\nDensita' %lf kg m^-3\nTemperatura %lf K\nPressione %lf Pa\n",atm.h,atm.dens,atm.temp,atm.press);
 
     printf("Giri motore impostati %lf\n",rpm);
-    printf("Velocità di volo %lf m s^-1\n",vel);
+    printf("Velocitï¿½ di volo %lf m s^-1\n",vel);
 
     errore=apri_file_lettura(file_propeller);
     if(errore){
@@ -46,7 +46,6 @@ int main(){
 
     chiudi_file_lettura();
     libera_dbp(&dbp);
-    printf("Premere un tasto per terminare\n");
-    getchar();
+
 return 0;
 }

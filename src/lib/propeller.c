@@ -1,4 +1,4 @@
-#include "propeller.h"
+#include "include/propeller.h"
 
 int errore_propeller=0;
 
@@ -18,13 +18,13 @@ t_res_prop propeller(const t_descrizione_propeller *desc_prop,const t_dbp *dbp,c
         somma=1;
         finito=0;
         while(!finito){
-            V0=vel*(1+a); // componente del flusso all'incirca uguale alla velocità di avanzamento del velivolo (Vinf), aumentata tramite l'axial inflow factor
-            V2=omega*dbp->staz[I_STAZ_PROP_CSI][i]*(1-b); // componente del flusso all'incirca uguale alla velocità angolare della sezione della pala (omega*rad), ridotta tramite l'angular inflow factor
+            V0=vel*(1+a); // componente del flusso all'incirca uguale alla velocitï¿½ di avanzamento del velivolo (Vinf), aumentata tramite l'axial inflow factor
+            V2=omega*dbp->staz[I_STAZ_PROP_CSI][i]*(1-b); // componente del flusso all'incirca uguale alla velocitï¿½ angolare della sezione della pala (omega*rad), ridotta tramite l'angular inflow factor
             phi=atan2(V0,V2); // angolo tra le due componenti del flusso V0 e V2
             alpha=theta-phi; // angolo di attacco raltivo alla j-esima sezione della pala
             cl=desc_prop->Cl0+desc_prop->Cla*alpha; //CL coefficiente di portanza
             cd=desc_prop->Cd0+desc_prop->Cda*alpha+desc_prop->Cda2*pow(alpha,2.0); // CD coefficiente di resistenza CD = CD0+CD1*CL+CD2*CL^2 (NB nel nostro case, CD = CD0+CD_alpha*alpha+CD_alpha2*alpha^2 -> slide lezione 2)
-            Vlocal=sqrt(pow(V0,2.0)+pow(V2,2.0)); // velocità locale del flusso
+            Vlocal=sqrt(pow(V0,2.0)+pow(V2,2.0)); // velocitï¿½ locale del flusso
             CT = cl*cos(phi)-cd*sin(phi); // CT coefficiente di spinta adimensionale
             DtDr=0.5*atm->dens*pow(Vlocal,2.0)*desc_prop->n_pale*dbp->staz[I_STAZ_PROP_CH_AD][i]*CT; // contributo di spinta della j-esima sezione
             CQ = cd*cos(phi)+cl*sin(phi); // CQ coefficiente di coppia adimensionale

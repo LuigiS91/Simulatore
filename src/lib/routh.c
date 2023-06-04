@@ -1,4 +1,4 @@
-#include "routh.h"
+#include "include/routh.h"
 
 
 t_res_routh routh(t_res_trim trim, t_descrizione_aereo desc_aer, t_atm_sl atm_sl,t_dba dba){
@@ -42,7 +42,7 @@ t_res_routh routh(t_res_trim trim, t_descrizione_aereo desc_aer, t_atm_sl atm_sl
 
     DELTA_ROUTH=B*C*D-A*pow(D,2.0)-pow(B,2.0)*E;
 
-    /*Controllo stabilità statica e dinamica*/
+    /*Controllo stabilitï¿½ statica e dinamica*/
     if (E>0){
         res_routh.is_stat_stab=1;
     }else{
@@ -51,7 +51,7 @@ t_res_routh routh(t_res_trim trim, t_descrizione_aereo desc_aer, t_atm_sl atm_sl
 
     if (DELTA_ROUTH>0){
         res_routh.is_din_stab=1;
-        /*Calcolo caratteristiche corto periodo e fugoide, ha senso solo se velivolo è stabile*/
+        /*Calcolo caratteristiche corto periodo e fugoide, ha senso solo se velivolo ï¿½ stabile*/
         res_routh.smorz_ph=1.0/sqrt(2.0)*C_De/C_We;
         res_routh.smorz_sp=(I_y_cap*C_Lal-2*mi*(C_mq+C_mAP))/(2.0*sqrt(-2.0*mi*I_y_cap*(2.0*mi*C_mal+C_mq*C_Lal)));
 

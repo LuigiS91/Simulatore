@@ -1,4 +1,4 @@
-#include "atmosfera.h"
+#include "include/atmosfera.h"
 
 
 
@@ -11,7 +11,7 @@ t_atm atmosfera(double h,t_atm_sl atm_sl){ //HO ottimizzato i passaggi per evita
     res.vel_s=sqrt(K_vels*res.temp);
     return res;
 }
-t_atm atmosfera_std(double h){  //in realtà questa sarebbe più veloce se si evitasse di passare quei parametri standar, il compilatore potrebbe però ottimizzare (BOH)
+t_atm atmosfera_std(double h){  //in realtï¿½ questa sarebbe piï¿½ veloce se si evitasse di passare quei parametri standar, il compilatore potrebbe perï¿½ ottimizzare (BOH)
     //return atmosfera(h,std_P0,std_T0,std_rho0,std_a);
     t_atm res;
     res.h=h;
