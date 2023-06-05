@@ -4,13 +4,13 @@ clc
 
 stati=struct();
 
-tmp=csvread('stati.txt');
+tmp=csvread('output/stati.txt');
 stati_field={"t";"u";"v";"w";"p";"q";"r";"phi";"psi";"theta";"h"};
 for i_stati=1:length(stati_field)
   stati.(stati_field{i_stati})=tmp(:,i_stati);
 end
 
-tmp=csvread('comandi.txt');
+tmp=csvread('output/comandi.txt');
 com_field={"t";"de";"da";"dr";"rpm"};
 for i_com=1:length(com_field)
   com.(com_field{i_com})=tmp(:,i_com);
@@ -181,5 +181,5 @@ ylabel('dh [m/s]');
 xlabel('t [s]');
 grid minor;
 
-type warning_errori.txt
+type output/warning_errori.txt
 
