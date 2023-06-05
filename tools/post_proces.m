@@ -4,13 +4,13 @@ clc
 
 stati=struct();
 
-tmp=csvread('output/stati.txt');
+tmp=dlmread('output/stati.txt',"\t");
 stati_field={"t";"u";"v";"w";"p";"q";"r";"phi";"psi";"theta";"h"};
 for i_stati=1:length(stati_field)
   stati.(stati_field{i_stati})=tmp(:,i_stati);
 end
 
-tmp=csvread('output/comandi.txt');
+tmp=dlmread('output/comandi.txt',"\t");
 com_field={"t";"de";"da";"dr";"rpm"};
 for i_com=1:length(com_field)
   com.(com_field{i_com})=tmp(:,i_com);
@@ -40,27 +40,27 @@ grid minor
 
 subplot(5,2,4)
 plot(stati.t,stati.p*180/pi)
-ylabel('p [�/s]')
+ylabel('p [deg/s]')
 grid minor
 
 subplot(5,2,5)
 plot(stati.t,stati.q*180/pi)
-ylabel('q [�/s]')
+ylabel('q [deg/s]')
 grid minor
 
 subplot(5,2,6)
 plot(stati.t,stati.r*180/pi)
-ylabel('r [�/s]')
+ylabel('r [deg/s]')
 grid minor
 
 subplot(5,2,7)
 plot(stati.t,stati.theta*180/pi)
-ylabel('theta [�]')
+ylabel('theta [deg]')
 grid minor
 
 subplot(5,2,8)
 plot(stati.t,stati.phi*180/pi)
-ylabel('phi [�]')
+ylabel('phi [deg]')
 grid minor
 
 subplot(5,2,9)
@@ -71,7 +71,7 @@ grid minor
 
 subplot(5,2,10)
 plot(stati.t,stati.psi*180/pi)
-ylabel('psi [�]')
+ylabel('psi [deg]')
 xlabel('t [s]');
 grid minor
 
@@ -79,17 +79,17 @@ figure('Units','normalized','OuterPosition',[0 0.5 0.25 0.5]);
 subplot(4,1,1)
 title('comando')
 plot(com.t,com.de*180/pi);
-ylabel('de [�]')
+ylabel('de [deg]')
 grid minor
 
 subplot(4,1,2)
 plot(com.t,com.da*180/pi);
-ylabel('da [�]')
+ylabel('da [deg]')
 grid minor
 
 subplot(4,1,3)
 plot(com.t,com.dr*180/pi);
-ylabel('dr [�]')
+ylabel('dr [deg]')
 grid minor
 
 subplot(4,1,4)
@@ -167,12 +167,12 @@ grid minor
 
 subplot(4,1,2)
 plot(stati.t,alpha*180/pi);
-ylabel('alpha [�]');
+ylabel('alpha [deg]');
 grid minor
 
 subplot(4,1,3)
 plot(stati.t,beta*180/pi);
-ylabel('beta [�]');
+ylabel('beta [deg]');
 grid minor;
 
 subplot(4,1,4)
@@ -183,3 +183,4 @@ grid minor;
 
 type output/warning_errori.txt
 
+pause()

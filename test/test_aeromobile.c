@@ -21,17 +21,16 @@ int test_aeromobile(){
     t_stato dstato;
     double h,vel,gamma;
     int errore;
-    char* file_dba="../../etc/dba.txt";
-    char* file_engine="../../etc/engine.txt";
-    char* file_prop="../../etc/propeller.txt";
+    char* file_dba="etc/dba.txt";
+    char* file_engine="etc/engine.txt";
+    char* file_prop="etc/propeller.txt";
 
 
     //Lettura dei dati di input
     printf("Lettura dei file\n");
     errore=apri_file_lettura(file_dba);
     if(errore){
-        printf("Errore lettura dati dba!\nPremere un tato per terminare\n");
-        getchar();
+        printf("Errore lettura dati dba!\n");
         return -1;
     }
     lettura_dati_intestazione_aerodinamica(&desc_aer,&limiti_comandi,&massa_combustibile);
@@ -41,16 +40,14 @@ int test_aeromobile(){
     chiudi_file_lettura();
     errore=apri_file_lettura(file_engine);
     if(errore){
-        printf("Errore lettura dati engine!\nPremere un tato per terminare\n");
-        getchar();
+        printf("Errore lettura dati engine!\n");
         return -1;
     }
     lettura_engine(&engine);
     chiudi_file_lettura();
     errore=apri_file_lettura(file_prop);
     if(errore){
-        printf("Errore lettura dati prop!\nPremere un tato per terminare\n");
-        getchar();
+        printf("Errore lettura dati prop!\n");
         return -1;
     }
     lettura_intestazione_propeller(&desc_prop);

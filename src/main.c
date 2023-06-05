@@ -59,12 +59,12 @@ int main(int argc,char **argv){
 
     double h,vel,gamma;
     int errore=0,esci=0;
-    char* file_dba="../etc/dba.txt";
-    char* file_engine="../etc/engine.txt";
-    char* file_prop="../etc/propeller.txt";
-    char* file_out_stati="../output/stati.txt";
-    char* file_out_com="../output/comandi.txt";
-    char* file_out_w_e="../output/warning_errori.txt";
+    char* file_dba="etc/dba.txt";
+    char* file_engine="etc/engine.txt";
+    char* file_prop="etc/propeller.txt";
+    char* file_out_stati="output/stati.txt";
+    char* file_out_com="output/comandi.txt";
+    char* file_out_w_e="output/warning_errori.txt";
 
 
     //Lettura dei dati di input

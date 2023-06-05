@@ -10,108 +10,120 @@ int alloca_dba(int num_inc,t_dba* dba){
 
     for(i=0;i<STEADY_STATE_C_SIZE;i++){
         dba->ssc[i]=(double*)malloc(sizeof(double)*num_inc);
-        if(dba->ssc[i]==0){
-                printf(errore);
-            return -1;
+        if(dba->ssc[i]==NULL){
+                printf("%s",errore);
+                return -1;
         }
     }
     for(i=0;i<X_DER_SIZE;i++){
         dba->x_der[i]=(double*)malloc(sizeof(double)*num_inc);
-        if(dba->ssc[i]==0){
-                printf(errore);
-            return -1;
+        if(dba->x_der[i]==NULL){
+                printf("%s",errore);
+                return -1;
         }
     }
     for(i=0;i<Y_DER_SIZE;i++){
         dba->y_der[i]=(double*)malloc(sizeof(double)*num_inc);
-        if(dba->ssc[i]==0){
-                printf(errore);
-            return -1;
+        if(dba->y_der[i]==NULL){
+                printf("%s",errore);
+                return -1;
         }
     }
     for(i=0;i<Z_DER_SIZE;i++){
         dba->z_der[i]=(double*)malloc(sizeof(double)*num_inc);
-        if(dba->ssc[i]==0){
-                printf(errore);
-            return -1;
+        if(dba->z_der[i]==NULL){
+                printf("%s",errore);
+                return -1;
         }
     }
     for(i=0;i<L_DER_SIZE;i++){
         dba->l_der[i]=(double*)malloc(sizeof(double)*num_inc);
-        if(dba->ssc[i]==0){
-                printf(errore);
-            return -1;
+        if(dba->l_der[i]==NULL){
+                printf("%s",errore);
+                return -1;
         }
     }
     for(i=0;i<M_DER_SIZE;i++){
         dba->m_der[i]=(double*)malloc(sizeof(double)*num_inc);
-        if(dba->ssc[i]==0){
-                printf(errore);
-            return -1;
+        if(dba->m_der[i]==NULL){
+                printf("%s",errore);
+                return -1;
         }
     }
     for(i=0;i<N_DER_SIZE;i++){
         dba->n_der[i]=(double*)malloc(sizeof(double)*num_inc);
-        if(dba->ssc[i]==0){
-                printf(errore);
-            return -1;
+        if(dba->n_der[i]==NULL){
+                printf("%s",errore);
+                return -1;
         }
     }
     for(i=0;i<COM_FOR_DER_SIZE;i++){
         dba->com_for_der[i]=(double*)malloc(sizeof(double)*num_inc);
-        if(dba->ssc[i]==0){
-                printf(errore);
-            return -1;
+        if(dba->com_for_der[i]==NULL){
+                printf("%s",errore);
+                return -1;
         }
     }
     for(i=0;i<COM_MOM_DER_SIZE;i++){
         dba->com_mom_der[i]=(double*)malloc(sizeof(double)*num_inc);
-        if(dba->ssc[i]==0){
-                printf(errore);
-            return -1;
+        if(dba->com_mom_der[i]==NULL){
+                printf("%s",errore);
+                return -1;
         }
     }
     for(i=0;i<ROT_DER_SIZE;i++){
         dba->rot_der[i]=(double*)malloc(sizeof(double)*num_inc);
-        if(dba->ssc[i]==0){
-                printf(errore);
-            return -1;
+        if(dba->rot_der[i]==NULL){
+                printf("%s",errore);
+                return -1;
         }
     }
+    
 return 0;
 }
 void libera_dba(t_dba* dba){
     int i;
 
     for(i=0;i<STEADY_STATE_C_SIZE;i++){
+        printf("Ci provo\n");
         free(dba->ssc[i]);
+        dba->ssc[i]=NULL;
     }
     for(i=0;i<X_DER_SIZE;i++){
         free(dba->x_der[i]);
+        dba->x_der[i]=NULL;
     }
     for(i=0;i<Y_DER_SIZE;i++){
         free(dba->y_der[i]);
+        dba->y_der[i]=NULL;
     }
     for(i=0;i<Z_DER_SIZE;i++){
         free(dba->z_der[i]);
+        dba->z_der[i]=NULL;
     }
     for(i=0;i<L_DER_SIZE;i++){
         free(dba->l_der[i]);
+        dba->l_der[i]=NULL;
     }
     for(i=0;i<M_DER_SIZE;i++){
         free(dba->m_der[i]);
+        dba->m_der[i]=NULL;
     }
     for(i=0;i<N_DER_SIZE;i++){
         free(dba->n_der[i]);
+        dba->n_der[i]=NULL;
     }
     for(i=0;i<COM_FOR_DER_SIZE;i++){
         free(dba->com_for_der[i]);
+        dba->com_for_der[i]=NULL;
     }
     for(i=0;i<COM_MOM_DER_SIZE;i++){
         free(dba->com_mom_der[i]);
+        dba->com_mom_der[i]=NULL;
     }
     for(i=0;i<ROT_DER_SIZE;i++){
         free(dba->rot_der[i]);
+        dba->rot_der[i]=NULL;
     }
 return;
 }
@@ -453,9 +465,9 @@ int alloca_dbp(int num_staz,t_dbp* dbp){
 
     for(i=0;i<STAZ_PROP_SIZE;i++){
         dbp->staz[i]=(double*)malloc(sizeof(double)*num_staz);
-        if(dbp->staz[i]==0){
-                printf(errore);
-            return -1;
+        if(dbp->staz[i]==NULL){
+                printf("%s",errore);
+                return -1;
         }
     }
 return 0;
@@ -464,5 +476,6 @@ void libera_dbp(t_dbp* dbp){
     int i;
     for(i=0;i<STAZ_PROP_SIZE;i++){
         free(dbp->staz[i]);
+        dbp->staz[i]=NULL;
     }
 }
