@@ -15,23 +15,21 @@ int test_lettura()
     int i;
     int errore;
 
-    const char* file_dba="../../etc/dba.txt";
-    const char* file_engine="../../etc/engine.txt";
-    const char* file_propeller="../../etc/propeller.txt";
+    const char* file_dba="etc/dba.txt";
+    const char* file_engine="etc/engine.txt";
+    const char* file_propeller="etc/propeller.txt";
 
 
     errore=apri_file_lettura(file_dba); //apro il file dba
     if(errore){
-        printf("Errore apertura file dba!\nPremere un tato per terminare\n");
-        getchar();
+        printf("Errore apertura file dba!\n");
         return -1;
     }
 
     printf("Test lettura dati!\n");
     errore=lettura_dati_intestazione_aerodinamica(&descrizione_aereo,&limiti_comando,&massa_combustibile);
     if(errore){
-        printf("Errore lettura dati intestazione!\nPremere un tato per terminare\n");
-        getchar();
+        printf("Errore lettura dati intestazione!\n");
         return -1;
     }
 
@@ -128,8 +126,7 @@ int test_lettura()
     chiudi_file_lettura();
     errore=apri_file_lettura(file_engine); // apro il file engine
     if(errore){
-        printf("Errore lettura dati engine!\nPremere un tasto per terminare\n");
-        getchar();
+        printf("Errore lettura dati engine!\n");
         return -1;
     }
 
@@ -146,8 +143,7 @@ int test_lettura()
     chiudi_file_lettura();
     errore=apri_file_lettura(file_propeller); // apro il file engine
     if(errore){
-        printf("Errore lettura dati propeller!\nPremere un tato per terminare\n");
-        getchar();
+        printf("Errore lettura dati propeller!\n");
         return -1;
     }
     lettura_intestazione_propeller(&desc_prop);
@@ -180,6 +176,8 @@ int test_lettura()
     libera_dba(&dba);
     libera_dbp(&dbp);
 
+    libera_dba(&dba);
+    libera_dba(&dba);
 
     return 0;
 }

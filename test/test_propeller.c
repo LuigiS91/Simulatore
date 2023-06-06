@@ -9,7 +9,7 @@ int test_propeller(){
     t_descrizione_propeller desc_prop;
     t_dbp dbp;
     t_res_prop prop;
-    const char* file_propeller="../../etc/propeller.txt";
+    const char* file_propeller="etc/propeller.txt";
     t_atm atm;
     int errore;
 
@@ -24,8 +24,7 @@ int test_propeller(){
 
     errore=apri_file_lettura(file_propeller);
     if(errore){
-        printf("Errore lettura dati propeller!\nPremere un tato per terminare\n");
-        getchar();
+        printf("Errore lettura dati propeller!\n");
         return -1;
     }
     lettura_intestazione_propeller(&desc_prop);

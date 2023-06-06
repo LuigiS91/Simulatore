@@ -17,7 +17,7 @@ int test_interpola(){
     t_limiti_comando lim_com;
     t_massa_combustibile massa_comb;
     t_dba dba;
-    const char* file_dba="../../etc/dba.txt";
+    const char* file_dba="etc/dba.txt";
     int errore;
 
     set_dimensione_vettori_interpola(3); //in questo modo si setta una sola volta e non bisogna passarlo ogni volta. Un passaggio quindi inutile di un valore costante � evitabile
@@ -48,8 +48,7 @@ int test_interpola(){
 
     errore=apri_file_lettura(file_dba);
     if(errore){
-        printf("Errore apertura file!\nPremere un tato per terminare\n");
-        getchar();
+        printf("Errore apertura file!\n");
         return -1;
     }
 

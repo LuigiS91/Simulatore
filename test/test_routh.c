@@ -25,9 +25,9 @@ int test_routh(){
 
     double h,vel,gamma;
     int errore;
-    char* file_dba="../../etc/dba.txt";
-    char* file_engine="../../etc/engine.txt";
-    char* file_prop="../../etc/propeller.txt";
+    char* file_dba="etc/dba.txt";
+    char* file_engine="etc/engine.txt";
+    char* file_prop="etc/propeller.txt";
 
 
 
@@ -35,7 +35,7 @@ int test_routh(){
     printf("Lettura dei file\n");
     errore=apri_file_lettura(file_dba);
     if(errore){
-        printf("Errore lettura dati dba!\nPremere un tato per terminare\n");
+        printf("Errore lettura dati dba!\n");
         getchar();
         return -1;
     }
@@ -46,16 +46,14 @@ int test_routh(){
     chiudi_file_lettura();
     errore=apri_file_lettura(file_engine);
     if(errore){
-        printf("Errore lettura dati engine!\nPremere un tato per terminare\n");
-        getchar();
+        printf("Errore lettura dati engine!\n");
         return -1;
     }
     lettura_engine(&engine);
     chiudi_file_lettura();
     errore=apri_file_lettura(file_prop);
     if(errore){
-        printf("Errore lettura dati prop!\nPremere un tato per terminare\n");
-        getchar();
+        printf("Errore lettura dati prop!\n");
         return -1;
     }
     lettura_intestazione_propeller(&desc_prop);
