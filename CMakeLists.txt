@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(Simulatore VERSION 0.2.0)
+project(Simulatore VERSION 0.2.1)
 
 include(CTest)
 enable_testing()
