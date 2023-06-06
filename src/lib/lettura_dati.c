@@ -85,7 +85,6 @@ void libera_dba(t_dba* dba){
     int i;
 
     for(i=0;i<STEADY_STATE_C_SIZE;i++){
-        printf("Ci provo\n");
         free(dba->ssc[i]);
         dba->ssc[i]=NULL;
     }
