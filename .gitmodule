@@ -1,4 +1,0 @@
-[submodule “modules/CliMenu”]
-path = modules/CliMenu”
-url = https://github.com/LuigiS91/CliMenu
-branch = master
