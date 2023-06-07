@@ -13,6 +13,8 @@
 typedef enum {c_da=0,c_de,c_dr,c_rpm}t_componente_comando; //serve per determinare in modo controllato il comando che viene impostato
 typedef enum {base=0,impulso,gradino,rampa,costante,sinusoidale,gradino_scontrato,rampa_scontrata,trapezio,trapezio_scontrato}t_tipo_comando; //elenco di comandi disponibili
 
+//TODO passare ad una versione con puntatori di funzioni e gestione ad eventi
+
 typedef struct{
     t_tipo_comando tipo;
     double t_impulso;
@@ -76,7 +78,7 @@ typedef struct{
     double ampiezza_2;
     double ampiezza_finale;
     double ampiezza_intermedia;
-}t_com_rampa_scontrata;//Struttura dati con i parametri minimi del comando gradino scontrato.Si può usare per il trapezio.
+}t_com_rampa_scontrata;//Struttura dati con i parametri minimi del comando gradino scontrato.Si puï¿½ usare per il trapezio.
 
 typedef struct{
     t_tipo_comando tipo;
@@ -90,7 +92,7 @@ typedef struct{
 
 typedef struct{
     t_tipo_comando tipo;
-}t_com_base;//Base di appoggio comune per distinguuere, usando la union, qual'è il comando salvato all'interno eil successivo accesso.
+}t_com_base;//Base di appoggio comune per distinguuere, usando la union, qual'ï¿½ il comando salvato all'interno eil successivo accesso.
 
 
 typedef union{
@@ -104,10 +106,10 @@ typedef union{
     t_com_trapezio_scontrato trap_scontr;
     t_com_base base;
 }u_funz_comando;//Union dei vari tipi di comando:
-//In questo modo è possibile incapsulare qualsiasi struttura dei comandi in una struttura comune da passare alla funzione.
+//In questo modo ï¿½ possibile incapsulare qualsiasi struttura dei comandi in una struttura comune da passare alla funzione.
 //Sara poi la funzione a verificare il tipo di comanda e accedere alla memoria nel modo corretto.
 
-//Nell'utilizzare quest libreria è quindi necessario:
+//Nell'utilizzare quest libreria ï¿½ quindi necessario:
 //     -inizializzare il vettore di impostazione attraverso la funzione set_comando_trim(...)
 //     -instaziare una union di comando
 //     -settare il tipo di comando e i valori
@@ -122,7 +124,7 @@ typedef union{
 //              ad esempio
 //                      set_comando(u_com,c_da);
 //
-//     -chiamare quando serve la funzione comando(t) che restituirà il vettore di comando in funzione delle impostazione settate
+//     -chiamare quando serve la funzione comando(t) che restituirï¿½ il vettore di comando in funzione delle impostazione settate
 //
 
 typedef double vett_com[SIZE_COM];
