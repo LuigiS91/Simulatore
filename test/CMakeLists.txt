@@ -22,8 +22,8 @@ create_test_sourcelist (Test${TestName}
   
   
   set(TestsToRun ${Test${TestName}})
-  remove(TestsToRun test_${TestName}.c) 
-  
+  list(REMOVE_ITEM TestsToRun test_${TestName}.c) 
+
   foreach(test ${TestsToRun})
     get_filename_component(TName ${test} NAME_WE)
     add_test(NAME ${TName} COMMAND exec_Test${TestName} ${TName} WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
