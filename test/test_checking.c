@@ -202,8 +202,8 @@ int test_checking(){
 
     set_comando(u_com,c_rpm);
 
-    out_stati=fopen(file_out_stati,"w+");
-    out_com=fopen(file_out_com,"w+");
+    out_stati=fopen(file_out_stati,"w");
+    out_com=fopen(file_out_com,"w");
     apri_file_w_e(file_out_w_e);
 
     fprintf(out_stati,"t\tu\tv\tw\tp\tq\tr\tphi\tpsi\ttheta\th\n");

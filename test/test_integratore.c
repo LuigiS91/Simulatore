@@ -108,7 +108,7 @@ int test_integratore(){
 
     printf("Eseguo l'integrazione\n\n");
 
-    in_lettura=fopen(file_out_stati,"w+");
+    in_lettura=fopen(file_out_stati,"w");
 
     fprintf(in_lettura,"t\tu\tv\tw\tp\tq\tr\tphi\tpsi\ttheta\th\n");
 

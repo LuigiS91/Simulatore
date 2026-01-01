@@ -1,0 +1,75 @@
+name: Build and Release Simulatore
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag da buildare'
+        required: true
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.tag || github.ref_name }}
+
+      - name: Configure CMake
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: cmake --build build
+
+      - name: Prepare package directory
+        run: |
+          mkdir -p package/output
+          cp -r bin package/ || true
+          cp -r lib package/ || true
+          cp -r etc package/ || true
+
+      - name: Package
+        run: tar -czf Simulatore-${{ github.event.inputs.tag || github.ref_name }}-linux.tar.gz -C package .
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: package-linux
+          path: Simulatore-${{ github.event.inputs.tag || github.ref_name }}-linux.tar.gz
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.tag || github.ref_name }}
+
+      - name: Download Linux artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: package-linux
+          path: package-linux
+
+      - name: Upload release assets
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.event.inputs.tag || github.ref_name }}
+          name: Simulatore ${{ github.event.inputs.tag || github.ref_name }}
+          files: package-linux/Simulatore-${{ github.event.inputs.tag || github.ref_name }}-linux.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

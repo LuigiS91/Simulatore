@@ -1,4 +1,27 @@
-.vscode
-build
-tools/octave-workspace
-output/*
+# Cartelle di build e binari
+bin/
+lib/
+test/bin/
+output/
+build/
+
+# File generati da CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+CTestTestfile.cmake
+DartConfiguration.tcl
+
+# Cartelle temporanee di CMake in src/test/lib
+src/CMakeFiles/
+src/Makefile
+src/cmake_install.cmake
+src/lib/CMakeFiles/
+src/lib/Makefile
+src/lib/cmake_install.cmake
+
+test/CMakeFiles/
+test/Makefile
+test/cmake_install.cmake
+test/test_Simulatore.c

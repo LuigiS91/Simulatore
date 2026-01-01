@@ -5,10 +5,11 @@
 #include "lettura_dati.h"
 #include "atmosfera.h"
 
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
 
 #define RPM_TO_ANGVEL 2.0*M_PI/60.0
-// #define DEG_TO_RAD M_PI/180.0
-// #define RAD_TO_DEG 180.0/M_PI
 #define RESIDUO_PROPELLER_BASE 1e-5
 
 extern int errore_propeller;

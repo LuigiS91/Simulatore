@@ -18,6 +18,7 @@ create_test_sourcelist (Test${TestName}
   set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/test/bin)
   add_executable(exec_Test${TestName} ${Test${TestName}})
   target_link_libraries(exec_Test${TestName} Sim)
+  target_compile_options(exec_Test${TestName} PRIVATE -g -O0)
   
   
   set(TestsToRun ${Test${TestName}})
