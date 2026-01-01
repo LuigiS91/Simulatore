@@ -224,7 +224,7 @@ int test_comando(){
                                                                                                         stato.h);
     t+=dt;
 
-    for(i=0;t<1500;i++){
+    for(i=0;t<500;i++){
         com=comando(t);
         fprintf(out_com,"%.16e\t%.16e\t%.16e\t%.16e\t%.16e\n",t,com.de,com.da,com.dr,com.rpm);
         stato=integra(&stato,&com,&dba,&dbp,&desc_aer,&desc_prop,&atm_sl,dt);
